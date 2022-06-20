@@ -1,8 +1,17 @@
-import React from 'react'
+/**
+ * Single Experiment Page
+ */
+
+// Dependencies
+import React from 'react';
+import { Outlet } from 'react-router-dom';
 
 const Experiment = () => {
     return (
-        <div>Experiment</div>
+        <div>
+            Experiment
+            <Outlet />
+        </div>
     )
 }
 
