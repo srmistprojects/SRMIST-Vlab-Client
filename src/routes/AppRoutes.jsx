@@ -12,6 +12,7 @@ import Subjects from '../pages/Subjects';
 import AllExperiments from '../pages/AllExperiments';
 import Experiment from '../pages/Experiment';
 import NotFound from '../pages/NotFound';
+import Project from '../pages/Project';
 
 // Experiment Page
 import Aim from '../components/experiments/aim';
@@ -26,6 +27,7 @@ const AppRoutes = () => {
     return (
         <Routes>
             <Route path='/' element={<Home />} />
+            <Route path='/project' element={<Project />} />
             <Route path='/subjects' element={<Subjects />} />
             <Route path='/:subjectName/experiments' element={<AllExperiments />} />
             <Route path='/:subjectName/experiments/:experimentName' element={<Experiment />} >
