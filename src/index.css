@@ -6,6 +6,11 @@
 	box-sizing: border-box;
 }
 
+:root {
+	--srm-blue: #063a7e;
+	--srm-yellow: #e4b316;
+}
+
 body {
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
 		'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
