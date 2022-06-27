@@ -19,7 +19,7 @@ const NavbarButton = styled(Button)({
     my: 2,
     transition: 'all 100ms ease-in-out',
     ':hover': {
-        backgroundColor: '#063A7E40',
+        backgroundColor: '#063A7E20',
     }
 })
 
