@@ -4,12 +4,19 @@
 
 // Dependencies
 import React from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // MUI
-import { Card, CardActions, CardContent, Button, Typography, Divider } from '@mui/material';
+import { Card, CardActions, CardContent, Button, Typography, Divider, Tooltip } from '@mui/material';
 
 const SubjectCard = ({ name, description, _id }) => {
+    const navigate = useNavigate();
+
+    const handleNavigateToSubject = () => {
+        const subjectPathName = `${_id}-${name.toLowerCase().replace(/\W/g, '-')}`;
+        navigate(`/${subjectPathName}/experiments`);
+    }
+
     return (
         <Card
             sx={{
@@ -40,7 +47,17 @@ const SubjectCard = ({ name, description, _id }) => {
                     mt: 'auto',
                 }}
             >
-                <Button size="small">Learn More</Button>
+                <Tooltip
+                    title={`Explore experiments of ${name}`}
+                    placement='right-end'
+                >
+                    <Button
+                        size="small"
+                        onClick={handleNavigateToSubject}
+                    >
+                        Learn More
+                    </Button>
+                </Tooltip>
             </CardActions>
         </Card>
     )
