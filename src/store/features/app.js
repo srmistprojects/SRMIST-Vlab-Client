@@ -33,6 +33,9 @@ const appSlice = createSlice({
             // Action Payload: Boolean
             state.value.isLoading = action.payload;
         },
+        resetApp: () => {
+
+        }
     }
 });
 

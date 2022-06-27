@@ -16,7 +16,7 @@ export const fetchAllSubjects = async () => {
             return response.data.data.subjects;
         } else throw new Error();
     } catch (error) {
-        return false;
+        return Promise.reject(error);
     }
 };
 
@@ -32,7 +32,7 @@ export const fetchAllExperiments = async (subjectId) => {
             return response.data.data;
         } else throw new Error();
     } catch (error) {
-        return false;
+        return Promise.reject(error);
     }
 };
 
@@ -48,6 +48,6 @@ export const fetchSingleExperiment = async (experimentId) => {
             return response.data.data;
         } else throw new Error();
     } catch (error) {
-        return false;
+        return Promise.reject(error);
     }
 };
