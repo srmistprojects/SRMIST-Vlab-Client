@@ -25,6 +25,7 @@ const Subjects = () => {
     const dispatch = useDispatch();
 
     const [error, setError] = useState(false);
+    const [retry, setRetry] = useState(false);
     const [subjects, setSubjects] = useState(
         sessionStorage.getItem('subjects') ? JSON.parse(sessionStorage.getItem('subjects')) : []
     );
@@ -37,7 +38,7 @@ const Subjects = () => {
                 setSubjects(allSubjects);
                 sessionStorage.setItem('subjects', JSON.stringify(allSubjects));
             } catch (error) {
-                dispatch(showSnackbar({ message: 'Unable to get subjects, try again later!' }))
+                dispatch(showSnackbar({ message: 'Unable to get subjects, try again later!' }));
                 setError(true);
             } finally {
                 dispatch(showLoading(false));
@@ -45,7 +46,12 @@ const Subjects = () => {
         };
 
         if (subjects.length === 0) handleFetchAllSubjects();
-    }, [])
+    }, [retry, dispatch, subjects.length]);
+
+    const handleRetry = () => {
+        setRetry(!retry);
+        setError(false);
+    }
 
     const SubjectsContainer = () => {
         return (
@@ -66,13 +72,13 @@ const Subjects = () => {
             <Navbar />
             <Container
                 sx={{
-                    padding: '2em'
+                    padding: '2em',
                 }}
             >
                 {
                     subjects.length > 0 && !error ?
                         <SubjectsContainer /> :
-                        error ? <SubjectError /> : <SubjectLoading />
+                        error ? <SubjectError onPress={handleRetry} /> : <SubjectLoading />
                 }
             </Container>
         </Box>
