@@ -12,7 +12,7 @@ const initialState = {
             message: '',
             open: false,
         },
-        loading: false,
+        isLoading: false,
     }
 }
 
@@ -31,7 +31,7 @@ const appSlice = createSlice({
         },
         showLoading: (state, action) => {
             // Action Payload: Boolean
-            state.value.loading = action.payload;
+            state.value.isLoading = action.payload;
         },
     }
 });

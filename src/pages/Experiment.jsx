@@ -11,10 +11,7 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 
-
-
 const drawerWidth = 240;
-
 function Experiment(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);

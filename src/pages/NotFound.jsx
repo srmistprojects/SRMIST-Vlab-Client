@@ -1,8 +1,19 @@
+/**
+ * Not Found Page
+ */
+
+// Dependencies
 import React from 'react'
+
+// Components
+import Navbar from '../components/reusable/navbar'
 
 const NotFound = () => {
     return (
-        <div>NotFound</div>
+        <div>
+            <Navbar />
+            NotFound
+        </div>
     )
 }
 

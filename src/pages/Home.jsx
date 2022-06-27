@@ -1,9 +1,20 @@
-import React from 'react'
+/**
+ * Home Page
+ */
+
+// Dependencies
+import React from 'react';
+
+// Components
+import Navbar from '../components/reusable/navbar';
 
 const Home = () => {
     return (
-        <div>Home</div>
+        <div>
+            <Navbar />
+            Home
+        </div>
     )
 }
 
-export default Home
+export default Home;

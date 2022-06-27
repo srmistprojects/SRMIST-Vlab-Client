@@ -1,8 +1,19 @@
-import React from 'react'
+/**
+ * All Experiments Page (for a single experiment)
+ */
+
+// Dependencies
+import React from 'react';
+
+// Components
+import Navbar from '../components/reusable/navbar';
 
 const AllExperiments = () => {
     return (
-        <div>AllExperiments</div>
+        <div>
+            <Navbar />
+            AllExperiments
+        </div>
     )
 }
 
