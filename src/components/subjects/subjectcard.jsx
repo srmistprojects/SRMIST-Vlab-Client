@@ -13,7 +13,7 @@ const SubjectCard = ({ name, description, _id }) => {
     const navigate = useNavigate();
 
     const handleNavigateToSubject = () => {
-        const subjectPathName = `${_id}-${name.toLowerCase().replace(/\W/g, '-')}`;
+        const subjectPathName = `${_id}--${name.toLowerCase().replace(/\W/g, '-')}`;
         navigate(`/${subjectPathName}/experiments`);
     }
 
