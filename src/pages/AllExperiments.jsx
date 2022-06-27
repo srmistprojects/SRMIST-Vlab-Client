@@ -23,9 +23,9 @@ import { showLoading, showSnackbar } from '../store/features/app';
 import { fetchAllExperiments } from '../utils/apis';
 
 const AllExperiments = () => {
+    const { subjectName } = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const { subjectName } = useParams();
 
     const [error, setError] = useState(false);
     const [reset, setReset] = useState(false);
@@ -34,7 +34,7 @@ const AllExperiments = () => {
             JSON.parse(sessionStorage.getItem(subjectName)) : []
     );
 
-    const handleExtractSubjectDetails = () => {
+    const [subjectId, currentSubject] = useMemo(() => {
         const _id = subjectName.split('--').shift();
         const subName = subjectName
             .split('--')
@@ -45,9 +45,7 @@ const AllExperiments = () => {
                 return letter;
             }).join(' ');
         return [_id, subName];
-    };
-    const [subjectId, currentSubject] = useMemo(handleExtractSubjectDetails,
-        [subjectName]);
+    }, [subjectName]);
 
     useEffect(() => {
         const handleFetchAllExperiments = async () => {
