@@ -13,7 +13,7 @@ import { Box, Container, Grid } from '@mui/material';
 import Navbar from '../components/reusable/navbar';
 import SubjectCard from '../components/subjects/subjectcard';
 import SubjectLoading from '../components/subjects/subjectloading';
-import SubjectError from '../components/subjects/subjecterror';
+import ErrorScreen from '../components/reusable/errorscreen';
 
 // Actions
 import { showLoading, showSnackbar } from '../store/features/app';
@@ -78,7 +78,7 @@ const Subjects = () => {
                 {
                     subjects.length > 0 && !error ?
                         <SubjectsContainer /> :
-                        error ? <SubjectError onPress={handleRetry} /> : <SubjectLoading />
+                        error ? <ErrorScreen title='There was an issue getting the subjects!' onPress={handleRetry} /> : <SubjectLoading />
                 }
             </Container>
         </Box>

@@ -12,9 +12,9 @@ import { Box, Link, Typography, Container, Grid } from '@mui/material';
 
 // Components
 import Navbar from '../components/reusable/navbar';
-import ExperimentsCard from '../components/allexperiments/experimentscard';
-import ExperimentsError from '../components/allexperiments/experimentserror';
 import ExperimentsLoading from '../components/allexperiments/experimentsloading';
+import ExperimentsCard from '../components/allexperiments/experimentscard';
+import ErrorScreen from '../components/reusable/errorscreen';
 
 // Actions
 import { showLoading, showSnackbar } from '../store/features/app';
@@ -52,6 +52,10 @@ const AllExperiments = () => {
             try {
                 dispatch(showLoading(true));
                 const allExperiments = await fetchAllExperiments(subjectId);
+                allExperiments.forEach((exp) => {
+                    exp.description = exp.aim[0].text;
+                    delete exp.aim;
+                });
                 setExperiments(allExperiments);
                 sessionStorage.setItem(subjectName, JSON.stringify(allExperiments));
             } catch (error) {
@@ -63,16 +67,27 @@ const AllExperiments = () => {
         }
 
         if (experiments.length === 0) handleFetchAllExperiments();
-    }, [dispatch, experiments.length, subjectId, subjectName])
+    }, [dispatch, experiments.length, subjectId, subjectName]);
 
-    const handleReset = () => {
+    const handleRetry = () => {
         setReset(!reset);
         setError(false);
     }
 
     const ExperimentsContainer = () => {
         return (
-            <Grid container></Grid>
+            <Grid container
+                spacing={{ xs: 2, md: 4 }}
+                zIndex={0}
+            >
+                {
+                    experiments.length > 0 && experiments.map((experiment) => (
+                        <Grid item key={experiment.name} xs={12} md={6} lg={4}>
+                            <ExperimentsCard {...experiment} />
+                        </Grid>
+                    ))
+                }
+            </Grid>
         )
     }
 
@@ -87,6 +102,9 @@ const AllExperiments = () => {
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
+                    height: '100%',
+                    gap: '1em',
+                    zIndex: 50,
                 }}
             >
                 <Box
@@ -102,13 +120,15 @@ const AllExperiments = () => {
                     </Typography>
                     <Link
                         onClick={() => navigate(-1)}
+                        variant='button'
+                        sx={{ cursor: 'pointer' }}
                     >
                         Go back
                     </Link>
                 </Box>
                 {
                     experiments.length > 0 && !error ? <ExperimentsContainer /> :
-                        error ? <ExperimentsError /> : <ExperimentsLoading />
+                        error ? <ErrorScreen title='There was an issue getting the experiments!' onPress={handleRetry} /> : <ExperimentsLoading />
                 }
             </Container>
         </Box>
