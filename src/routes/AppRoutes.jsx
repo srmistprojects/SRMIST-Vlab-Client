@@ -26,7 +26,7 @@ import References from '../components/experiments/references';
 const AppRoutes = () => {
     return (
         <Routes>
-            <Route path='/' element={<Home />} />
+            <Route exact path='/' element={<Home />} />
             <Route path='/project' element={<Project />} />
             <Route path='/subjects' element={<Subjects />} />
             <Route path='/:subjectName/experiments' element={<AllExperiments />} />
@@ -41,7 +41,8 @@ const AppRoutes = () => {
                 <Route path='references' element={<References />} />
                 <Route path='*' element={<Navigate to='aim' />} />
             </Route>
-            <Route path='*' element={<NotFound />} />
+            <Route path='/not-found' element={<NotFound />} />
+            <Route path='*' element={<Navigate to='/not-found' />} />
         </Routes>
     )
 }

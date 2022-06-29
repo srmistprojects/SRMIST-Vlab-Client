@@ -129,7 +129,7 @@ function Experiment(props) {
                             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                         }}
                     >
-                        <ExperimentDrawer />
+                        <ExperimentDrawer onPress={handleDrawerToggle} />
                     </Drawer>
                     <Drawer
                         variant="permanent"
