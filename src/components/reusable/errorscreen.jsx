@@ -30,7 +30,7 @@ const ErrorScreen = ({ onPress, title }) => {
                 src={ErrorImage}
                 alt='Error loading subjects'
                 style={{
-                    width: 'clamp(280px, 100%, 360px)',
+                    width: 'clamp(240px, 100%, 360px)',
                     height: 'auto',
                     opacity: '0.8',
                 }}
