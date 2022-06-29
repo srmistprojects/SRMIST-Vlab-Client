@@ -21,7 +21,7 @@ const Videos = () => {
     <Box>
       <Typography
         variant='h4'
-      >videos</Typography>
+      >Videos</Typography>
       <Divider />
       <List>
         {

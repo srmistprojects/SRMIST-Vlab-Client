@@ -68,6 +68,11 @@ const extraNavigation = [
         Icon: HomeIcon,
     },
     {
+        name: 'All Experiments',
+        link: -1,
+        ArrowBackIcon,
+    },
+    {
         name: 'All Subjects',
         link: '/subjects',
         Icon: ArrowBackIcon,
