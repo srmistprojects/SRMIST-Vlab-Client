@@ -11,7 +11,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 function Backdrop() {
   const { isLoading } = useSelector((state) => state.app.value);
   return (
-    <Main open={isLoading} sx={{ zIndex: 500, color: 'white' }}>
+    <Main open={isLoading} sx={{ zIndex: 1000, color: 'white' }}>
       <CircularProgress color="inherit" />
     </Main>
   );

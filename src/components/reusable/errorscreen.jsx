@@ -4,14 +4,17 @@
 
 // Dependencies
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // MUI
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button, Typography, Grid } from '@mui/material';
 
 // Custom
 import ErrorImage from '../../assets/loading-error.gif';
 
 const ErrorScreen = ({ onPress, title }) => {
+    const navigate = useNavigate();
+
     return (
         <Box
             sx={{
@@ -45,12 +48,28 @@ const ErrorScreen = ({ onPress, title }) => {
                 >
                     {title}
                 </Typography>
-                <Button
-                    variant='outlined'
-                    onClick={onPress}
-                >
-                    Try again?
-                </Button>
+                <Grid container spacing={4}>
+                    <Grid item xs={6}>
+                        <Button
+                            variant='contained'
+                            onClick={onPress}
+                            fullWidth
+                            sx={{ zIndex: 100 }}
+                        >
+                            Try again?
+                        </Button>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Button
+                            variant='outlined'
+                            onClick={() => navigate('/')}
+                            fullWidth
+                            sx={{ zIndex: 100 }}
+                        >
+                            Go home.
+                        </Button>
+                    </Grid>
+                </Grid>
             </Box>
         </Box>
     )
