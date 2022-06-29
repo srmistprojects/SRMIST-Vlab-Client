@@ -39,7 +39,7 @@ const AppRoutes = () => {
                 <Route path='simulation' element={<Simulation />} />
                 <Route path='videos' element={<Videos />} />
                 <Route path='references' element={<References />} />
-                <Route path='*' element={<Navigate to='/aim' />} />
+                <Route path='*' element={<Navigate to='aim' />} />
             </Route>
             <Route path='*' element={<NotFound />} />
         </Routes>

@@ -1,20 +1,21 @@
 /**
- * Subject Card Component
+ * Experiment Card Component
  */
 
 // Dependencies
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 // MUI
 import { Card, CardActions, CardContent, Button, Typography, Divider, Tooltip } from '@mui/material';
 
-const SubjectCard = ({ name, description, slug, _id }) => {
+const ExperimentCard = ({ name, description, slug, _id }) => {
     const navigate = useNavigate();
+    const { subjectName } = useParams();
 
-    const handleNavigateToSubject = () => {
-        const subjectPathName = `${_id}--${slug}`;
-        navigate(`/${subjectPathName}/experiments`);
+    const handleNavigateToExperiment = () => {
+        const experimentPath = `${_id}--${slug}`
+        navigate(`/${subjectName}/experiments/${experimentPath}`);
     }
 
     return (
@@ -48,12 +49,12 @@ const SubjectCard = ({ name, description, slug, _id }) => {
                 }}
             >
                 <Tooltip
-                    title={`Explore experiments of ${name}`}
+                    title={`Explore ${name}`}
                     placement='right-end'
                 >
                     <Button
                         size="small"
-                        onClick={handleNavigateToSubject}
+                        onClick={handleNavigateToExperiment}
                     >
                         Learn More
                     </Button>
@@ -63,4 +64,4 @@ const SubjectCard = ({ name, description, slug, _id }) => {
     )
 }
 
-export default SubjectCard
+export default ExperimentCard;

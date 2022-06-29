@@ -5,15 +5,16 @@
 // Dependencies
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 // MUI
-import { Box, Container, Grid } from '@mui/material';
+import { Box, Container, Grid, Typography, Link } from '@mui/material';
 
 // Components
 import Navbar from '../components/reusable/navbar';
 import SubjectCard from '../components/subjects/subjectcard';
 import SubjectLoading from '../components/subjects/subjectloading';
-import SubjectError from '../components/subjects/subjecterror';
+import ErrorScreen from '../components/reusable/errorscreen';
 
 // Actions
 import { showLoading, showSnackbar } from '../store/features/app';
@@ -22,6 +23,7 @@ import { showLoading, showSnackbar } from '../store/features/app';
 import { fetchAllSubjects } from '../utils/apis';
 
 const Subjects = () => {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const [error, setError] = useState(false);
@@ -73,12 +75,38 @@ const Subjects = () => {
             <Container
                 sx={{
                     padding: '2em',
+                    width: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    height: '100%',
+                    gap: '1em',
                 }}
             >
+                <Box
+                    display='flex'
+                    alignItems='center'
+                    justifyContent='space-between'
+                    width='100%'
+                >
+                    <Typography
+                        variant='h5'
+                    >
+                        Subjects
+                    </Typography>
+                    <Link
+                        onClick={() => navigate(-1)}
+                        variant='button'
+                        sx={{ cursor: 'pointer' }}
+                    >
+                        Go back
+                    </Link>
+                </Box>
                 {
                     subjects.length > 0 && !error ?
                         <SubjectsContainer /> :
-                        error ? <SubjectError onPress={handleRetry} /> : <SubjectLoading />
+                        error ? <ErrorScreen title='There was an issue getting the subjects!' onPress={handleRetry} /> : <SubjectLoading />
                 }
             </Container>
         </Box>

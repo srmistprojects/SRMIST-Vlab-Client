@@ -27,9 +27,9 @@ export const fetchAllSubjects = async () => {
  */
 export const fetchAllExperiments = async (subjectId) => {
     try {
-        const response = axios({ url: `/api/experiment/all/${subjectId}`, method: 'get' });
+        const response = await axios({ url: `/api/experiment/all/${subjectId}`, method: 'get' });
         if (response.status === 200) {
-            return response.data.data;
+            return response.data.data.experiments;
         } else throw new Error();
     } catch (error) {
         return Promise.reject(error);
@@ -43,9 +43,9 @@ export const fetchAllExperiments = async (subjectId) => {
  */
 export const fetchSingleExperiment = async (experimentId) => {
     try {
-        const response = axios({ url: `/api/experiment/${experimentId}`, method: 'get' });
+        const response = await axios({ url: `/api/experiment/${experimentId}`, method: 'get' });
         if (response.status === 200) {
-            return response.data.data;
+            return response.data.data.experiment;
         } else throw new Error();
     } catch (error) {
         return Promise.reject(error);
