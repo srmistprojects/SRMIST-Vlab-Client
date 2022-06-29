@@ -1,9 +1,22 @@
-import React from 'react'
+/**
+ * Experiment Simulation Component
+ */
+
+// Dependencies
+import React from 'react';
+
+// MUI
+import { Box, Divider, Typography } from '@mui/material'
 
 const Simulation = () => {
   return (
-    <div>Simulation</div>
+    <Box>
+      <Typography
+        variant='h4'
+      >Simulation</Typography>
+      <Divider />
+    </Box>
   )
 }
 
-export default Simulation
+export default Simulation;
