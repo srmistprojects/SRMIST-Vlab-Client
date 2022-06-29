@@ -3,8 +3,8 @@
  */
 
 // Dependencies
-import React from 'react';
-import { Outlet } from 'react-router-dom';
+import React, { useState, useMemo, useEffect } from 'react';
+import { Outlet, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { AppBar, Box, CssBaseline, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography } from '@mui/material';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
@@ -12,8 +12,8 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 
 const drawerWidth = 240;
-function Experiment(props) {
-    const { window } = props;
+function Experiment() {
+    const { experimentName } = useParams();
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
     const handleDrawerToggle = () => {
@@ -122,13 +122,5 @@ function Experiment(props) {
         </Box>
     );
 }
-
-Experiment.propTypes = {
-    /**
-     * Injected by the documentation to work in an iframe.
-     * You won't need it on your project.
-     */
-    window: PropTypes.func,
-};
 
 export default Experiment;
