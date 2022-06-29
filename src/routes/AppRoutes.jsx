@@ -41,7 +41,8 @@ const AppRoutes = () => {
                 <Route path='references' element={<References />} />
                 <Route path='*' element={<Navigate to='aim' />} />
             </Route>
-            <Route path='*' element={<NotFound />} />
+            <Route path='*' element={<Navigate to='/not-found' />} />
+            <Route path='/not-found' element={<NotFound />} />
         </Routes>
     )
 }
