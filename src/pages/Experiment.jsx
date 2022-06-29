@@ -3,20 +3,12 @@
  */
 
 // Dependencies
-<<<<<<< HEAD
 import React, { useState, useMemo, useEffect } from 'react';
 import { Outlet, useParams, } from 'react-router-dom';
 import { useDispatch } from 'react-redux/es/exports';
 
 // MUI
 import { AppBar, Box, CssBaseline, Drawer, IconButton, Toolbar, Typography } from '@mui/material';
-=======
-import React from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
-import { AppBar, Box, CssBaseline, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography } from '@mui/material';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
->>>>>>> fd56cf3143b3d94f43df82bcfefbb6f65c9dd371
 import MenuIcon from '@mui/icons-material/Menu';
 
 // Components
@@ -32,7 +24,6 @@ import { fetchSingleExperiment } from '../utils/apis';
 
 const drawerWidth = 240;
 function Experiment(props) {
-<<<<<<< HEAD
     const dispatch = useDispatch();
     const { experimentName } = useParams();
     const [error, setError] = useState(false);
@@ -42,9 +33,6 @@ function Experiment(props) {
         sessionStorage.getItem(experimentName) ?
             JSON.parse(sessionStorage.getItem(experimentName)) : null
     );
-=======
-    const navigate = useNavigate();
->>>>>>> fd56cf3143b3d94f43df82bcfefbb6f65c9dd371
     const { window } = props;
 
     const isExperimentLoaded = typeof experiment === 'object' ? experiment?.hasOwnProperty('aim') : false;
@@ -89,62 +77,6 @@ function Experiment(props) {
         setMobileOpen(!mobileOpen);
     };
 
-<<<<<<< HEAD
-=======
-    const experimentNavigation = [
-        {
-            name: 'Aim',
-            link: 'aim',
-        },
-    ];
-    const addOnNavigation = [
-        {
-            name: 'View Experiments',
-            link: -1,
-        },
-        {
-            name: 'View Subject',
-            link: -1,
-        },
-        {
-            name: 'Go Home',
-            link: '/'
-        }
-    ];
-
-    const drawer = (
-        <div>
-            <Toolbar />
-            <Divider />
-            <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
-            </List>
-            <Divider />
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
-            </List>
-        </div>
-    );
-
->>>>>>> fd56cf3143b3d94f43df82bcfefbb6f65c9dd371
     const container = window !== undefined ? () => window().document.body : undefined;
 
     const MainComponent = () => {
