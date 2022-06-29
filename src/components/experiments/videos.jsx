@@ -7,7 +7,7 @@ import React from 'react'
 import { useOutletContext } from 'react-router-dom';
 
 // MUI
-import { Typography, Box, ListItem, List, ListItemIcon, ListItemText, Divider, Link } from '@mui/material';
+import { Typography, Box, ListItem, List, ListItemIcon, ListItemText, Divider } from '@mui/material';
 import HdrStrongIcon from '@mui/icons-material/HdrStrong';
 import HdrWeakIcon from '@mui/icons-material/HdrWeak';
 
