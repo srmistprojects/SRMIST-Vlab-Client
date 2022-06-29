@@ -70,7 +70,7 @@ const extraNavigation = [
     {
         name: 'All Experiments',
         link: -1,
-        ArrowBackIcon,
+        Icon: ArrowBackIcon,
     },
     {
         name: 'All Subjects',
@@ -89,7 +89,7 @@ const extraNavigation = [
     },
 ];
 
-const Drawer = () => {
+const Drawer = ({ onPress }) => {
     const navigate = useNavigate();
 
     return (
@@ -117,7 +117,9 @@ const Drawer = () => {
                         disablePadding
                         onClick={() => navigate(link)}
                     >
-                        <ListItemButton>
+                        <ListItemButton
+                            onClick={onPress}
+                        >
                             <ListItemIcon>
                                 <Icon />
                             </ListItemIcon>
@@ -134,7 +136,9 @@ const Drawer = () => {
                         disablePadding
                         onClick={() => navigate(link)}
                     >
-                        <ListItemButton>
+                        <ListItemButton
+                            onClick={onPress}
+                        >
                             <ListItemIcon>
                                 <Icon />
                             </ListItemIcon>
