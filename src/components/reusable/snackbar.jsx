@@ -28,7 +28,7 @@ function Snackbar() {
       open={snackbar.open}
       autoHideDuration={6000} // 6 Seconds before Hiding the Snackbar
       onClose={handleSnackbarClose}
-      anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+      anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
       TransitionComponent={Slide}
     >
       <Alert

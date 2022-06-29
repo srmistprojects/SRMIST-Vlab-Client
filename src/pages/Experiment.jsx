@@ -4,8 +4,7 @@
 
 // Dependencies
 import React from 'react';
-import { Outlet } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { AppBar, Box, CssBaseline, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography } from '@mui/material';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
@@ -13,12 +12,34 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 const drawerWidth = 240;
 function Experiment(props) {
+    const navigate = useNavigate();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
+
+    const experimentNavigation = [
+        {
+            name: 'Aim',
+            link: 'aim',
+        },
+    ];
+    const addOnNavigation = [
+        {
+            name: 'View Experiments',
+            link: -1,
+        },
+        {
+            name: 'View Subject',
+            link: -1,
+        },
+        {
+            name: 'Go Home',
+            link: '/'
+        }
+    ];
 
     const drawer = (
         <div>
@@ -122,13 +143,5 @@ function Experiment(props) {
         </Box>
     );
 }
-
-Experiment.propTypes = {
-    /**
-     * Injected by the documentation to work in an iframe.
-     * You won't need it on your project.
-     */
-    window: PropTypes.func,
-};
 
 export default Experiment;
