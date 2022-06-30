@@ -26,7 +26,7 @@ const Videos = () => {
       <List>
         {
           videos.map(({ link }, index) => (
-            <ListItem>
+            <ListItem key={index}>
               <ListItemIcon>
                 {index % 2 === 1 ? <HdrStrongIcon /> : <HdrWeakIcon />}
               </ListItemIcon>
