@@ -43,7 +43,7 @@ const Project = () => {
                 </Box>
                 <Grid container spacing={2} mt={4}>
                     <Grid item xs={12} sm={6}>
-                        <Card sx={{ minWidth: 275 }} elevation={3}>
+                        <Card sx={{ minWidth: 275, height: '100%' }} elevation={3}>
                             <CardContent
                                 sx={{
                                     display: 'flex',
@@ -79,7 +79,7 @@ const Project = () => {
                         </Card>
                     </Grid>
                     <Grid item xs={12} sm={6}>
-                        <Card sx={{ minWidth: 275 }} elevation={3}>
+                        <Card sx={{ minWidth: 275, height: '100%', display: 'flex', flexDirection: 'column' }} elevation={3}>
                             <CardContent
                                 sx={{
                                     display: 'flex',
@@ -98,7 +98,7 @@ const Project = () => {
                                 <Typography variant='h6'>Contact Us.</Typography>
                                 <Typography variant='subtitle2'>If there's some error in any experiment or any information is incorrect, reach out to us, we'll get back to you soon!</Typography>
                             </CardContent>
-                            <CardActions>
+                            <CardActions sx={{ mt: 'auto' }}>
                                 <Button
                                     variant='outlined'
                                     target='_blank'
