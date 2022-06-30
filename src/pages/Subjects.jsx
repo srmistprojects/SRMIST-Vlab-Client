@@ -96,7 +96,7 @@ const Subjects = () => {
                         Subjects
                     </Typography>
                     <Link
-                        onClick={() => navigate(-1)}
+                        onClick={() => navigate('/')}
                         variant='button'
                         sx={{ cursor: 'pointer' }}
                     >

@@ -23,7 +23,7 @@ const References = () => {
       <List>
         {
           references.map(({ link }, index) => (
-            <ListItem>
+            <ListItem key={index}>
               <ListItemIcon>
                 {index % 2 === 1 ? <HdrStrongIcon /> : <HdrWeakIcon />}
               </ListItemIcon>

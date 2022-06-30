@@ -119,7 +119,7 @@ const AllExperiments = () => {
                         {currentSubject}
                     </Typography>
                     <Link
-                        onClick={() => navigate(-1)}
+                        onClick={() => navigate('/subjects')}
                         variant='button'
                         sx={{ cursor: 'pointer' }}
                     >
