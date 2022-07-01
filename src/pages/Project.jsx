@@ -6,12 +6,15 @@
 import React from 'react';
 
 // MUI
-import { Box, Container, Divider, Grid, Typography, Card, CardContent, CardActions, Button } from '@mui/material';
+import { Box, Container, Divider, Grid, Typography, Card, CardContent, CardActions, Button, Avatar } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import EmailIcon from '@mui/icons-material/Email';
 
 // Components
 import Navbar from '../components/reusable/navbar';
+
+// Custom
+import SRMLogo from '../assets/srmist-logo.png';
 
 const Project = () => {
     return (
@@ -41,8 +44,8 @@ const Project = () => {
                         Good lab facilities and updated lab experiments are critical for any engineering college. Paucity of lab facilities often make it difficult to conduct experiments. Also, good teachers are always a scarce resource. The Virtual Labs project addresses this issue of lack of good lab facilities, as well as trained teachers, by providing remote-access to simulation-based Labs in various disciplines of science and engineering. Yet another objective is to arouse the curiosity of the students and permit them to learn at their own pace. This student-centric approach facilitates the absorption of basic and advanced concepts through simulation-based experimentation. Internet-based experimentation further permits use of additional web-resources, video-lectures, animated demonstrations and self-evaluation.
                     </Typography>
                 </Box>
-                <Grid container spacing={2} mt={4}>
-                    <Grid item xs={12} sm={6}>
+                <Grid container spacing={4} mt={4}>
+                    <Grid item xs={12} sm={6} md={4}>
                         <Card sx={{ minWidth: 275, height: '100%' }} elevation={3}>
                             <CardContent
                                 sx={{
@@ -62,7 +65,7 @@ const Project = () => {
                                 <Typography variant='h6'>VLab is Open Source!</Typography>
                                 <Typography variant='subtitle2'>Feel like something can be improved in terms of better UI, smoother functionality, or optimization? Take a look at the GitHub repo below and contribute to this project.</Typography>
                             </CardContent>
-                            <CardActions>
+                            <CardActions sx={{ margin: '0 auto' }}>
                                 <Button
                                     variant='outlined'
                                     target='_blank'
@@ -78,7 +81,41 @@ const Project = () => {
                             </CardActions>
                         </Card>
                     </Grid>
-                    <Grid item xs={12} sm={6}>
+                    <Grid item xs={12} sm={6} md={4}>
+                        <Card sx={{ minWidth: 275, height: '100%', display: 'flex', flexDirection: 'column' }} elevation={3}>
+                            <CardContent
+                                sx={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    gap: 1
+                                }}
+                            >
+                                <Avatar
+                                    src={SRMLogo}
+                                    sx={{
+                                        margin: '0 auto',
+                                        width: '2rem',
+                                        height: '2rem'
+                                    }}
+                                />
+                                <Typography variant='h6'>SRMIST.</Typography>
+                                <Typography variant='subtitle2'>A place for learning, discovery, innovation, expression and discourse. Education is all about creating an environment of academic freedom, where bright minds meet, discover and learn.</Typography>
+                            </CardContent>
+                            <CardActions sx={{ mt: 'auto' }}>
+                                <Button
+                                    variant='outlined'
+                                    target='_blank'
+                                    href='https://www.srmist.edu.in/'
+                                    sx={{
+                                        margin: '0 auto'
+                                    }}
+                                >Visit SRMIST</Button>
+                            </CardActions>
+                        </Card>
+                    </Grid>
+                    <Grid item xs={12} sm={6} md={4}>
                         <Card sx={{ minWidth: 275, height: '100%', display: 'flex', flexDirection: 'column' }} elevation={3}>
                             <CardContent
                                 sx={{
