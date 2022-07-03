@@ -3,45 +3,66 @@
  */
 
 // Dependencies
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-// Components
-import Home from '../pages/Home';
-import Subjects from '../pages/Subjects';
-import AllExperiments from '../pages/AllExperiments';
-import Experiment from '../pages/Experiment';
-import NotFound from '../pages/NotFound';
-import Project from '../pages/Project';
+// Skeleton
+import MainSkeleton from '../components/skeleton/main';
+import ExperimentSkeleton from '../components/skeleton/experiment';
+
+// Pages
+const Home = lazy(() => import('../pages/Home'));
+const Subjects = lazy(() => import('../pages/Subjects'));
+const AllExperiments = lazy(() => import('../pages/AllExperiments'));
+const Experiment = lazy(() => import('../pages/Experiment'));
+const NotFound = lazy(() => import('../pages/NotFound'));
+const Project = lazy(() => import('../pages/Project'));
 
 // Experiment Page
-import Aim from '../components/experiments/aim';
-import Theory from '../components/experiments/theory';
-import Procedure from '../components/experiments/procedure';
-import Observation from '../components/experiments/observation';
-import Simulation from '../components/experiments/simulation';
-import Videos from '../components/experiments/videos';
-import References from '../components/experiments/references';
+const Aim = lazy(() => import('../components/experiments/aim'));
+const Theory = lazy(() => import('../components/experiments/theory'));
+const Procedure = lazy(() => import('../components/experiments/procedure'));
+const Observation = lazy(() => import('../components/experiments/observation'));
+const Simulation = lazy(() => import('../components/experiments/simulation'));
+const Videos = lazy(() => import('../components/experiments/videos'));
+const References = lazy(() => import('../components/experiments/references'));
 
 const AppRoutes = () => {
+
+    const LazyLoadMain = ({ children }) => {
+        return (
+            <Suspense fallback={<MainSkeleton />}>
+                {children}
+            </Suspense>
+        );
+    }
+
+    const LazyLoadExperiment = ({ Component }) => {
+        return (
+            <Suspense fallback={<ExperimentSkeleton />}>
+                <Component />
+            </Suspense>
+        );
+    }
+
     return (
         <Routes>
-            <Route exact path='/' element={<Home />} />
-            <Route path='/project' element={<Project />} />
-            <Route path='/subjects' element={<Subjects />} />
-            <Route path='/:subjectName/experiments' element={<AllExperiments />} />
-            <Route path='/:subjectName/experiments/:experimentName' element={<Experiment />} >
+            <Route exact path='/' element={<LazyLoadMain><Home /></LazyLoadMain>} />
+            <Route path='/project' element={<LazyLoadMain><Project /></LazyLoadMain>} />
+            <Route path='/subjects' element={<LazyLoadMain><Subjects /></LazyLoadMain>} />
+            <Route path='/:subjectName/experiments' element={<LazyLoadMain><AllExperiments /></LazyLoadMain>} />
+            <Route path='/:subjectName/experiments/:experimentName' element={<LazyLoadMain><Experiment /></LazyLoadMain>} >
                 <Route index element={<Navigate to='aim' />} />
-                <Route path='aim' element={<Aim />} />
-                <Route path='theory' element={<Theory />} />
-                <Route path='procedure' element={<Procedure />} />
-                <Route path='observation' element={<Observation />} />
-                <Route path='simulation' element={<Simulation />} />
-                <Route path='videos' element={<Videos />} />
-                <Route path='references' element={<References />} />
+                <Route path='aim' element={<LazyLoadExperiment><Aim /></LazyLoadExperiment>} />
+                <Route path='theory' element={<LazyLoadExperiment><Theory /></LazyLoadExperiment>} />
+                <Route path='procedure' element={<LazyLoadExperiment><Procedure /></LazyLoadExperiment>} />
+                <Route path='observation' element={<LazyLoadExperiment><Observation /></LazyLoadExperiment>} />
+                <Route path='simulation' element={<LazyLoadExperiment><Simulation /></LazyLoadExperiment>} />
+                <Route path='videos' element={<LazyLoadExperiment><Videos /></LazyLoadExperiment>} />
+                <Route path='references' element={<LazyLoadExperiment><References /></LazyLoadExperiment>} />
                 <Route path='*' element={<Navigate to='aim' />} />
             </Route>
-            <Route path='/not-found' element={<NotFound />} />
+            <Route path='/not-found' element={<LazyLoadMain><NotFound /></LazyLoadMain>} />
             <Route path='*' element={<Navigate to='/not-found' />} />
         </Routes>
     )
