@@ -4,7 +4,7 @@
 
 // Dependencies
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 // MUI
 import { Toolbar, Divider, Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Avatar, Typography } from '@mui/material';
@@ -23,69 +23,75 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 // Custom
 import SRMLogo from '../../assets/srmist-logo.png';
 
-const experimentNavigation = [
-    {
-        name: 'Aim',
-        link: 'aim',
-        Icon: FlagIcon,
-    },
-    {
-        name: 'Theory',
-        link: 'theory',
-        Icon: BookIcon,
-    },
-    {
-        name: 'Procedure',
-        link: 'procedure',
-        Icon: MoveDownIcon,
-    },
-    {
-        name: 'Observation',
-        link: 'observation',
-        Icon: ManageSearchIcon,
-    },
-    {
-        name: 'Simulation',
-        link: 'simulation',
-        Icon: ComputerIcon,
-    },
-    {
-        name: 'Videos',
-        link: 'videos',
-        Icon: MovieIcon,
-    },
-    {
-        name: 'References',
-        link: 'references',
-        Icon: AttachmentIcon,
-    },
-];
-
-const extraNavigation = [
-    {
-        name: 'Home',
-        link: '/',
-        Icon: HomeIcon,
-    },
-    {
-        name: 'All Subjects',
-        link: '/subjects',
-        Icon: ArrowBackIcon,
-    },
-    {
-        name: 'Project',
-        link: '/project',
-        Icon: InfoIcon,
-    },
-    {
-        name: 'Contribute',
-        link: '/project',
-        Icon: GitHubIcon,
-    },
-];
-
-const Drawer = () => {
+const Drawer = ({ onPress }) => {
     const navigate = useNavigate();
+    const { subjectName } = useParams();
+
+    const experimentNavigation = [
+        {
+            name: 'Aim',
+            link: 'aim',
+            Icon: FlagIcon,
+        },
+        {
+            name: 'Theory',
+            link: 'theory',
+            Icon: BookIcon,
+        },
+        {
+            name: 'Procedure',
+            link: 'procedure',
+            Icon: MoveDownIcon,
+        },
+        {
+            name: 'Observation',
+            link: 'observation',
+            Icon: ManageSearchIcon,
+        },
+        {
+            name: 'Simulation',
+            link: 'simulation',
+            Icon: ComputerIcon,
+        },
+        {
+            name: 'Videos',
+            link: 'videos',
+            Icon: MovieIcon,
+        },
+        {
+            name: 'References',
+            link: 'references',
+            Icon: AttachmentIcon,
+        },
+    ];
+
+    const extraNavigation = [
+        {
+            name: 'Home',
+            link: '/',
+            Icon: HomeIcon,
+        },
+        {
+            name: 'All Experiments',
+            link: `/${subjectName}/experiments`,
+            Icon: ArrowBackIcon,
+        },
+        {
+            name: 'All Subjects',
+            link: '/subjects',
+            Icon: ArrowBackIcon,
+        },
+        {
+            name: 'Project',
+            link: '/project',
+            Icon: InfoIcon,
+        },
+        {
+            name: 'Contribute',
+            link: '/project',
+            Icon: GitHubIcon,
+        },
+    ];
 
     return (
         <div>
@@ -112,7 +118,9 @@ const Drawer = () => {
                         disablePadding
                         onClick={() => navigate(link)}
                     >
-                        <ListItemButton>
+                        <ListItemButton
+                            onClick={onPress}
+                        >
                             <ListItemIcon>
                                 <Icon />
                             </ListItemIcon>
@@ -129,7 +137,9 @@ const Drawer = () => {
                         disablePadding
                         onClick={() => navigate(link)}
                     >
-                        <ListItemButton>
+                        <ListItemButton
+                            onClick={onPress}
+                        >
                             <ListItemIcon>
                                 <Icon />
                             </ListItemIcon>

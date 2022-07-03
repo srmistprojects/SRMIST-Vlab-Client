@@ -26,7 +26,7 @@ const Observation = () => {
       <List>
         {
           observation.map(({ text, image }, index) => (
-            <ListItem>
+            <ListItem key={index}>
               <ListItemIcon>
                 {index % 2 === 1 ? <HdrStrongIcon /> : <HdrWeakIcon />}
               </ListItemIcon>

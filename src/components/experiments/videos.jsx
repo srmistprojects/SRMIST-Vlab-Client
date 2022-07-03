@@ -21,12 +21,12 @@ const Videos = () => {
     <Box>
       <Typography
         variant='h4'
-      >videos</Typography>
+      >Videos</Typography>
       <Divider />
       <List>
         {
           videos.map(({ link }, index) => (
-            <ListItem>
+            <ListItem key={index}>
               <ListItemIcon>
                 {index % 2 === 1 ? <HdrStrongIcon /> : <HdrWeakIcon />}
               </ListItemIcon>
