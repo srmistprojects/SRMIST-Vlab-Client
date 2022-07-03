@@ -37,10 +37,10 @@ const AppRoutes = () => {
         );
     }
 
-    const LazyLoadExperiment = ({ Component }) => {
+    const LazyLoadExperiment = ({ children }) => {
         return (
             <Suspense fallback={<ExperimentSkeleton />}>
-                <Component />
+                {children}
             </Suspense>
         );
     }
