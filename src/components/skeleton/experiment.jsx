@@ -5,7 +5,7 @@
 import React from 'react';
 
 // MUI
-import { Skeleton, Box, Container, Avatar, Typography } from '@mui/material';
+import { Skeleton, Box, Avatar } from '@mui/material';
 
 const ExperimentSkeleton = () => {
 
