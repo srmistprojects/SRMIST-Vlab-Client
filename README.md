@@ -27,7 +27,9 @@ This project is an initiative to provide a Virtual Lab Platform for SRMIST. It's
 git clone https://github.com/<your-github-username>/SRMIST-VLab-Client
 ```
 
-For more information on how to fork this repo and contribute to it, refer to the [Contributing](#📥-contributing) guidelines.
+⚠️ **Note**:
+
+To test the client application with the subjects and experiments data, you will need to have the **server application** cloned as well, for more information on how do it refer to the [Contributing](#📥-contributing) guidelines.
 
 ### Install All Dependencies
 
