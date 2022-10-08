@@ -80,3 +80,7 @@ So, feel free to fork this repo. If you do, please just give us proper credit by
 ## 🫂 Mentions
 
 Part of this README was inspired from [https://github.com/SneakySensei/react-lean-modal](https://github.com/SneakySensei/react-lean-modal).
+
+--- 
+
+<center>If you found this project interesting or helpful, leave a ⭐! It helps others learn more about this project.</center>
