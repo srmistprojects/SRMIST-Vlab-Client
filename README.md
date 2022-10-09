@@ -8,14 +8,16 @@ This project is an initiative to provide a Virtual Lab Platform for SRMIST. It's
 
 **Table of Contents**:
 
-- [Quick Setup](#🚀-quick-setup)
+- [Quick Setup](#-quick-setup)
   - [Fork and Clone](#fork-and-clone-this-repo)
   - [Install All Dependencies](#install-all-dependencies)
   - [Start the Application](#start-the-application)
-- [Contributing](#📥-contributing)
-  - [Project Contributors](#🦸-project-contributorsproject-contributors)
-- [License](#📃-license)
-  - [Forking this Repo?](#❓-forking-this-repo)
+- [Contributing](#-contributing)
+  - [Project Contributors](#-project-contributorsproject-contributors)
+- [License](#-license)
+  - [Forking this Repo?](#-forking-this-repo)
+- [Application UI](#-application-ui)
+- [Mentions](#-mentions)
 
 ---
 
@@ -29,7 +31,7 @@ git clone https://github.com/<your-github-username>/SRMIST-VLab-Client
 
 ⚠️ **Note**:
 
-To test the client application with the subjects and experiments data, you will need to have the **server application** cloned as well, for more information on how do it refer to the [Contributing](#📥-contributing) guidelines.
+To test the client application with the subjects and experiments data, you will need to have the **server application** cloned as well, for more information on how do it refer to the [Contributing](#-contributing) guidelines.
 
 ### Install All Dependencies
 
@@ -83,4 +85,4 @@ Part of this README was inspired from [https://github.com/SneakySensei/react-lea
 
 --- 
 
-<center>If you found this project interesting or helpful, leave a ⭐! It helps others learn more about this project.</center>
+<p align="center">If you found this project interesting or helpful, leave a ⭐! It helps others learn more about this project.</p>
