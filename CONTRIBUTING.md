@@ -2,17 +2,17 @@
 
 **Table of Contents**:
 
-- [Getting Started](#🚀-getting-started)
+- [Getting Started](#-getting-started)
   - [Prerequisites](#prerequisites)
   - [Staring the Service Application (Quick Setup)](#starting-service-application)
   - [Starting the Client Application](#starting-the-client-application)
-- [How to Contribute](#❓-how-to-contribute)
-- [Standards and Guidelines](#📐-standards-and-guidelines)
-- [Basic Contributing Guidelines](#🐰-basic-contributing-guidelines)
-- [Advanced Contributing Guidelines](#🤖-advanced-contributing-guidelines)
-- [Creating a Pull Request](#👾-creating-a-pull-request)
-- [Merging a Pull Request](#🐙-merging-a-pull-request)
-- [Questions](#❓-questions)
+- [How to Contribute](#-how-to-contribute)
+- [Standards and Guidelines](#-standards-and-guidelines)
+- [Basic Contributing Guidelines](#-basic-contributing-guidelines)
+- [Advanced Contributing Guidelines](#-advanced-contributing-guidelines)
+- [Creating a Pull Request](#-creating-a-pull-request)
+- [Merging a Pull Request](#-merging-a-pull-request)
+- [Questions](#-questions)
 
 ## 🚀 Getting Started
 
